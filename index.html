@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        body {
+            background-color: rgb(201, 32, 32);
+        }
+
+        .conteudo {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+        }
+        .card {
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 150px;
+            /* margin: auto; */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(252, 252, 252);
+        }
+
+        .tipos {
+            display: flex;
+            gap: 5px;
+        }
+
+        .tipos p:nth-child(1) {
+            color: white;
+            background-color: orange;
+            border-radius: 8px;
+            padding: 4px;
+    
+        }
+
+        .botaoTipo {
+            color: black;
+            background-color: #ccc;
+            border-radius: 8px;
+            padding: 4px;
+        }
+
+
+        h1 {
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+<body onload="chama()">
+    
+    <h1>API DOS 151 POKEMONS DE KANTO</h1>
+    <div class="conteudo">
+
+    </div>
+
+    <script>
+
+        let conteudo = document.querySelector('.conteudo')
+
+        function chama(){
+
+
+            let i = 0
+            while(i <= 151){
+                console.log(i)
+                fetch(`https://pokeapi.co/api/v2/pokemon/${i}`)
+                    .then(response => response.json())
+                    .then(dados => {
+                    console.log(dados)
+
+                
+                    // criando meu card
+                    let card = document.createElement('div')
+                    // colocando minha div no meu html conteudo
+                    conteudo.appendChild(card)
+                    card.classList.add('card')
+                    
+                    // colocando img no card
+                    let img = document.createElement('img')
+                    card.appendChild(img)
+                    img.src = dados.sprites.front_default
+
+                    // colocando nome pokemon
+                    let namePokemon = document.createElement('p')
+                    card.appendChild(namePokemon)
+                    namePokemon.textContent = dados.name
+
+                    // criar tipo
+                    let tipoPokemon = document.createElement('p')
+                    card.appendChild(tipoPokemon)
+                    tipoPokemon.textContent = dados.types[0].type.name
+                    tipoPokemon.classList.add('botaoTipo')
+                    
+                })
+                i++
+            }
+
+            conteudo.classList.add('conteudo')
+
+
+        }
+    </script>
+
+</body>
+</html>
