@@ -5,7 +5,52 @@ body {
 :root {
   --fire-color: #ff6a00;
   --water-color: #007bff;
-  --grass-color: rgba(0, 255, 17, 0.733);
+  --grass-color: rgba(36, 150, 44, 0.733);
+}
+
+.fire {
+  color: var(--fire-color);
+  background-color: #000000;
+  border-radius: 8px;
+  padding: 4px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.water {
+  color: var(--water-color);
+  background-color: #000000;
+  border-radius: 8px;
+  padding: 4px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.grass {
+  color: var(--grass-color);
+  background-color: #000000;
+  border-radius: 8px;
+  padding: 4px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.eletrico {
+  color: #ffdd00;
+  background-color: #000000;
+  border-radius: 8px;
+  padding: 4px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.poison {
+  color: #ff00bb;
+  background-color: #000000;
+  border-radius: 8px;
+  padding: 4px;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 
 .conteudo {
@@ -34,18 +79,12 @@ body {
   gap: 5px;
 }
 
-.tipos p:nth-child(1) {
-  color: white;
-  background-color: orange;
-  border-radius: 8px;
-  padding: 4px;
-}
-
 .botaoTipo {
   color: black;
   background-color: #ccc;
   border-radius: 8px;
   padding: 4px;
+  text-transform: uppercase;
 }
 
 h1 {

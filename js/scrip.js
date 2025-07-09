@@ -3,11 +3,11 @@ let conteudo = document.querySelector(".conteudo");
 function chama() {
   let i = 0;
   while (i <= 151) {
-    console.log(i);
+    //console.log(i);
     fetch(`https://pokeapi.co/api/v2/pokemon/${i}`)
       .then((response) => response.json())
       .then((dados) => {
-        console.log(dados);
+        //console.log(dados);
 
         // criando meu card
         let card = document.createElement("div");
@@ -28,8 +28,40 @@ function chama() {
         // criar tipo
         let tipoPokemon = document.createElement("p");
         card.appendChild(tipoPokemon);
-        tipoPokemon.textContent = dados.types[0].type.name;
-        tipoPokemon.classList.add("botaoTipo");
+
+        switch (dados.types[0].type.name) {
+          case "fire":
+            tipoPokemon.textContent = dados.types[0].type.name;
+            console.log(dados.types[0].type.name);
+            tipoPokemon.classList.add("fire");
+
+            break;
+          case "water":
+            tipoPokemon.textContent = dados.types[0].type.name;
+            console.log(dados.types[0].type.name);
+            tipoPokemon.classList.add("water");
+            break;
+          case "grass":
+            tipoPokemon.textContent = dados.types[0].type.name;
+            console.log(dados.types[0].type.name);
+            tipoPokemon.classList.add("grass");
+            break;
+         case 'electric':
+            tipoPokemon.textContent = dados.types[0].type.name;
+            console.log(dados.types[0].type.name);
+            tipoPokemon.classList.add("eletrico");
+            break
+         case 'poison':
+            tipoPokemon.textContent = dados.types[0].type.name;
+            console.log(dados.types[0].type.name);
+            tipoPokemon.classList.add("poison");
+            break
+          default:
+            tipoPokemon.textContent = dados.types[0].type.name;
+            console.log(dados.types[0].type.name);
+            tipoPokemon.classList.add("botaoTipo");
+        }
+
       });
     i++;
   }
