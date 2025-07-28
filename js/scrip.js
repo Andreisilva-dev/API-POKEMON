@@ -2,7 +2,7 @@ let conteudo = document.querySelector(".conteudo");
 
 function chama() {
   let i = 0;
-  while (i <= 151) {
+  while (i <= 251) {
     //console.log(i);
     fetch(`https://pokeapi.co/api/v2/pokemon/${i}`)
       .then((response) => response.json())
